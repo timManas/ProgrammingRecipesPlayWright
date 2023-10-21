@@ -20,7 +20,7 @@ test('Product Page Add To Basket', async ({ page }) => {
   await checkoutLink.waitFor()
   await checkoutLink.click()
 
-  await page.waitForURL('/baskets') // this will go to localhost:2221/basket
+  await page.waitForURL('/basket') // this will go to localhost:2221/basket
 
   //   await page.pause()
 })
