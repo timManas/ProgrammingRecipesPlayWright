@@ -1,11 +1,37 @@
 PlayWright
 
-Notes
+Notes -------------------------------
 
 1. Running npm run tests, will execute all your tests on chromium, firefox and webkit UNLESS you comment them out
-2. NOTE !! All tests run in PARALLEL. If you increase the number of files in example.spec.js, then we execute those tests in PARALLEL
+2. NOTE !! All tests run in PARALLEL. 
+  If you increase the number of files in example2.spec.js, then we execute those tests in PARALLEL
+3. All test files should end in  ".spec.js"
 
-Questions
+
+
+
+Tips & Tricks -------------------------------
+
+1. You can pause (like a debugger) using page.pause(). 
+Then a playwright inspector will appear and you can click the play button to move next
+2. Use .waitFor() to wait for a specific elemenet to appear and also get better logs
+  - Note: This is affected by playwright config timeout: 5 * 1000,
+3. The 'reporter: line' sets the bugs to appear on the console instead of the browser
+4. 'test' allow us to write tests
+   'expect' allow us to validate something
+    import { test, expect } from '@playwright/test'
+5. Press ctrl+f to open the selector 
+
+
+Questions -------------------------------
+
+##### TODO #####
+1. Visit the PlayWright Documentation
+2. Understand node_modules
+3. Understand the playwright.config.js
+4. Find different tricks to locate element
+
+##### Basic Concepts #####
 
 Q1. How to run on Npm ?
 - Execute the following
@@ -28,4 +54,26 @@ Ex: In Package json
 Q4. What is the purpose of the playwright.config.js ?
 1. Executes our tests on each one of the "projects" type i.e Chromium, Firefox, webkit
 2. Sets our configuration for the suite
+
+
+Q5. How to skip tests
+- - You can skip by using test.skip()
+Running 2 tests using 2 workers
+  1 skipped
+  1 passed (5.4s)
+
+Q6. What does this mean ? 
+import { test } from '@playwright/test' ? 
+- This line basically means that we import test from '@playwright/tests' from the package.json ...which then is stored in the node_modules
+
+**TODO: Understand what the Node_modules is ? What, Why, Where, How ?
+
+Q7. How to initiate a tests ? 
+1. We need the test object from @playwright/tests
+test('TITLE HERE', async ({ page }) => {
+  await page.goto('www.XYZ.com')
+})
+
+Q8. What is the { tests } object ? 
+- It is the test.d.ts file in node_modules
 
