@@ -21,6 +21,8 @@ Then a playwright inspector will appear and you can click the play button to mov
    'expect' allow us to validate something
     import { test, expect } from '@playwright/test'
 5. Press ctrl+f to open the selector 
+6. Set the baseURL in the playwright.config.js file to set the base URL so we dont need to repeat constatly
+  - Note: when go to main home page, we just need to do page.goto('/')
 
 
 Questions -------------------------------
@@ -34,7 +36,9 @@ Questions -------------------------------
 ##### Basic Concepts #####
 
 Q1. How to run on Npm ?
-- Execute the following
+1. Execute the "shopping-store-mac-amd64"
+2. Go localhost:2221 to make sure it is running
+3. Execute the following
   npm run test
   Or
   npm test
