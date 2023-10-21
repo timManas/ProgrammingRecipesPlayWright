@@ -1,0 +1,31 @@
+PlayWright
+
+Notes
+
+1. Running npm run tests, will execute all your tests on chromium, firefox and webkit UNLESS you comment them out
+2. NOTE !! All tests run in PARALLEL. If you increase the number of files in example.spec.js, then we execute those tests in PARALLEL
+
+Questions
+
+Q1. How to run on Npm ?
+- Execute the following
+  npm run test
+  Or
+  npm test
+
+Q2. What does the --headed do in package.json ?
+1. Opens Browser (i.e this is headed browser execution)
+1a.Without the head will run in a headless browser
+2. Runs all the tests in "tests" folder
+
+Q3. Why the "tests" folder ?
+- Its because we defined that in the package.json
+Ex: In Package json
+  "scripts": {
+    "test": "playwright test --headed"
+  },
+
+Q4. What is the purpose of the playwright.config.js ?
+1. Executes our tests on each one of the "projects" type i.e Chromium, Firefox, webkit
+2. Sets our configuration for the suite
+
