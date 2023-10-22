@@ -26,7 +26,7 @@ Then a playwright inspector will appear and you can click the play button to mov
 7. You can run specific test by using the .only 
   - Ex: test.only()
 8. Best Practice: Make sure you define your locators in the constructor in PageObjects
-
+9. BP: Make sure to call waitFor() before performing any action or validation
 Questions -------------------------------
 
 ##### TODO #####

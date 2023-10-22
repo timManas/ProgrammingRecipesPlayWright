@@ -36,7 +36,5 @@ export class Checkout {
 
     // Validate the number of cards left in checkout
     await expect(this.basketCards).toHaveCount(itemsBeforeRemoval - 1)
-
-    // await this.page.pause()
   }
 }
