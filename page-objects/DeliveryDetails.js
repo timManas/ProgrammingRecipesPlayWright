@@ -71,4 +71,10 @@ export class DeliveryDetails {
       await this.country.inputValue()
     )
   }
+
+  continueToPayment = async () => {
+    await this.continueToPaymentButton.waitFor()
+    await this.continueToPaymentButton.click()
+    await this.page.waitForURL(/\/payment/)
+  }
 }
