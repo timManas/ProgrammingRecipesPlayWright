@@ -1,5 +1,4 @@
 import { expect } from '@playwright/test'
-import { v4 as uuidv4 } from 'uuid'
 
 export class RegisterPage {
   constructor(page) {
@@ -13,15 +12,14 @@ export class RegisterPage {
     )
   }
 
-  signUpAsNewUser = async () => {
+  signUpAsNewUser = async (email, password) => {
     await this.email.waitFor()
     await this.password.waitFor()
     await this.registerButton.waitFor()
 
     // Fill email and password
-    const emailId = uuidv4()
-    await this.email.fill(emailId + '@email.com')
-    await this.password.fill('12345')
+    await this.email.fill(email)
+    await this.password.fill(password)
 
     // Click
     await this.registerButton.click()
