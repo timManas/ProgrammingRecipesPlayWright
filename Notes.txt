@@ -27,6 +27,9 @@ Then a playwright inspector will appear and you can click the play button to mov
   - Ex: test.only()
 8. Best Practice: Make sure you define your locators in the constructor in PageObjects
 9. BP: Make sure to call waitFor() before performing any action or validation
+10. npn install --save PACKAGENAME - Will download from npm and save it into your package.json devDependencies
+
+
 Questions -------------------------------
 
 ##### TODO #####
