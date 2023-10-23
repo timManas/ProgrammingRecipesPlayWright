@@ -33,9 +33,7 @@ class PaymentPage {
     const code = await this.discountCode.innerText()
     console.log('discountCode: ' + code)
 
-    // Enter code
-    await this.discountCodeInput.fill(code)
-
+    // Option1 - Copy Page into input field
     // Note this will fail !
     // Why ? Because input only accepts one character at a time.
     // expect(await this.discountCodeInput.inputValue()).toBe(code)
@@ -44,7 +42,14 @@ class PaymentPage {
     // According to docs:
     // toHaveValue() - Ensures the Locator points to an element with the given input value. You can use regular expressions for the value as well.
     // all the toHaveValue() has a retry funcitonality which retries and retries until it succeeds
-    await expect(this.discountCodeInput).toHaveValue(code)
+    // Enter code
+    // await this.discountCodeInput.fill(code)
+    // await expect(this.discountCodeInput).toHaveValue(code)
+
+    // Option2 - Keyword input for slow typing
+    await this.discountCodeInput.focus()
+    await this.page.keyboard.type(code, { delay: 1000 }) // Slow Type 1 second per
+    expect(await this.discountCodeInput.inputValue()).toBe(code)
   }
 }
 
