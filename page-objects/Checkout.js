@@ -9,6 +9,9 @@ export class Checkout {
     this.basketItemRemovedButton = page.locator(
       '[data-qa="basket-card-remove-item"]'
     )
+    this.continueToCheckoutButton = page.locator(
+      '[data-qa="continue-to-checkout"]'
+    )
   }
 
   removeCheapestProduct = async () => {
@@ -36,5 +39,11 @@ export class Checkout {
 
     // Validate the number of cards left in checkout
     await expect(this.basketCards).toHaveCount(itemsBeforeRemoval - 1)
+  }
+
+  async continueToCheckout() {
+    await this.continueToCheckoutButton.waitFor()
+    await this.continueToCheckoutButton.click()
+    await this.page.waitForURL(/\/login/)
   }
 }
