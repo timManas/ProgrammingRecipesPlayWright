@@ -88,14 +88,17 @@ class PaymentPage {
     await this.creditCardNumber.waitFor()
     await this.validUntil.waitFor()
     await this.creditCardCVC.waitFor()
-    await this.payButton.waitFor()
 
     await this.creditCardOwner.fill(paymentDetails.creditCardOwner)
     await this.creditCardNumber.fill(paymentDetails.creditCardNumber)
     await this.validUntil.fill(paymentDetails.validUntil)
     await this.creditCardCVC.fill(paymentDetails.cvc)
+  }
 
+  completePayment = async () => {
+    await this.payButton.waitFor()
     await this.payButton.click()
+    await this.page.waitForURL(/\/thank-you/, { timeout: 3000 })
   }
 }
 

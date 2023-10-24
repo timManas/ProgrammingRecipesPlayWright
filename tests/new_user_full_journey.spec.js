@@ -41,4 +41,5 @@ test.only('New user Full End to End Test', async ({ page }) => {
   const paymentPage = new PaymentPage(page)
   await paymentPage.activateDiscount()
   await paymentPage.fillDeliveryDetails(paymentDetails)
+  await paymentPage.completePayment()
 })
