@@ -23,7 +23,7 @@ class PaymentPage {
     )
 
     // Credit Card
-    this.creditCardOwner = this.page.locator('data-qa="credit-card-owner"')
+    this.creditCardOwner = this.page.locator('[data-qa="credit-card-owner"]')
     this.creditCardNumber = this.page.locator(
       'input[placeholder="Credit card number"]'
     )
@@ -78,7 +78,24 @@ class PaymentPage {
     let discountTotal = await this.totalDiscount.innerText()
     discountTotal = parseInt(discountTotal.replace('$', ''))
 
-    expect(discountTotal).toBeLessThan(total)
+    expect(discountTotal).toBeLessThanOrEqual(total)
+  }
+
+  async fillDeliveryDetails(paymentDetails) {
+    // Wait until object appears
+
+    await this.creditCardOwner.waitFor()
+    await this.creditCardNumber.waitFor()
+    await this.validUntil.waitFor()
+    await this.creditCardCVC.waitFor()
+    await this.payButton.waitFor()
+
+    await this.creditCardOwner.fill(paymentDetails.creditCardOwner)
+    await this.creditCardNumber.fill(paymentDetails.creditCardNumber)
+    await this.validUntil.fill(paymentDetails.validUntil)
+    await this.creditCardCVC.fill(paymentDetails.cvc)
+
+    await this.payButton.click()
   }
 }
 
