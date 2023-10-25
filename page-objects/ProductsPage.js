@@ -25,9 +25,11 @@ export class ProductsPage {
     await expect(specificAddButton).toHaveText('Add to Basket')
 
     const navigation = new Navigation(this.page)
+
     // Run this only in desktop viewport
+    let basketCountBeforeAdding
     if (isDesktopViewport(this.page)) {
-      const basketCountBeforeAdding = await navigation.getBasketCount()
+      basketCountBeforeAdding = await navigation.getBasketCount()
     }
     await specificAddButton.click() // Click
 
