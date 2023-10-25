@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test'
+import { isDesktopViewport } from '../utils/utils.js'
 
 export class Navigation {
   constructor(page) {
@@ -15,7 +16,7 @@ export class Navigation {
   }
 
   goToCheckout = async () => {
-    if (this.burgerButton.isVisible()) {
+    if (!isDesktopViewport(this.page)) {
       await this.burgerButton.click()
     }
 

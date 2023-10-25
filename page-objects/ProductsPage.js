@@ -1,9 +1,6 @@
 import { expect } from '@playwright/test'
 import { Navigation } from './Navigation.js'
-
-const isDesktopViewport = (page) => {
-  return page.viewportSize().width >= 600
-}
+import { isDesktopViewport } from '../utils/utils.js'
 
 export class ProductsPage {
   // Place all PageObjects here in constructor
