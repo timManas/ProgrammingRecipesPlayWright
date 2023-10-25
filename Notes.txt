@@ -6,6 +6,7 @@ Notes -------------------------------
 2. NOTE !! All tests run in PARALLEL. 
   If you increase the number of files in example2.spec.js, then we execute those tests in PARALLEL
 3. All test files should end in  ".spec.js"
+4. To test in mobile, you will need to uncomment the "Mobile Chrome" viewport in playwright.config.js
 
 
 
