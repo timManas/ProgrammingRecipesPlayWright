@@ -30,6 +30,9 @@ Then a playwright inspector will appear and you can click the play button to mov
 9. BP: Make sure to call waitFor() before performing any action or validation
 10. npn install --save PACKAGENAME - Will download from npm and save it into your package.json devDependencies
 11. BP: Page Objects should not contain any hard coded values. Should be placed in an object instead 
+12. Use JSON.stringify() to convert JSON object to stringify. Why ? So we can send them in the body of a API request
+
+
 
 Questions -------------------------------
 
@@ -87,3 +90,7 @@ test('TITLE HERE', async ({ page }) => {
 Q8. What is the { tests } object ? 
 - It is the test.d.ts file in node_modules
 
+Q9. What is Node Fetch
+- Bring Fetch API to Node.js
+- Note: version of node-fetch is v2 ... NOT v3
+"npm install --save node-fetch@2.6.7"
