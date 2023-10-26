@@ -1,11 +1,15 @@
 class MyAccountPage {
   constructor(page) {
     this.page = page
+    this.myAccountHeader = page.getByRole('heading', { name: 'My Account' })
   }
 
   visit = async () => {
     await this.page.goto('/my-account')
-    await this.page.pause()
+  }
+
+  async waitForPageHeading() {
+    await this.myAccountHeader.waitFor()
   }
 }
 
