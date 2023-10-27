@@ -35,7 +35,10 @@ Then a playwright inspector will appear and you can click the play button to mov
 14. Use page.evaluate() to execute JS on the browser
 15. Use the .env (environment variable) to store username/password credentials
   > You need to install dotenv to read the .env file (npm install --save dotenv)
-  
+16. Use globalSetup to instantiate your testcases before they run (ex: execute the dotenv you can access the parameters through the project)
+>   globalSetup: require.resolve('./globalSetup.js'),
+
+
 Questions -------------------------------
 
 ##### TODO #####
