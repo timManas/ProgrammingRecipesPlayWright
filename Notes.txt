@@ -33,7 +33,9 @@ Then a playwright inspector will appear and you can click the play button to mov
 12. Use JSON.stringify() to convert JSON object to stringify. Why ? So we can send them in the body of a API request
 13. Holy Shit ! You can use the console to send cookies to a website ...WHAT ????
 14. Use page.evaluate() to execute JS on the browser
-
+15. Use the .env (environment variable) to store username/password credentials
+  > You need to install dotenv to read the .env file (npm install --save dotenv)
+  
 Questions -------------------------------
 
 ##### TODO #####
@@ -95,3 +97,11 @@ Q9. What is Node Fetch
 - Bring Fetch API to Node.js
 - Note: version of node-fetch is v2 ... NOT v3
 "npm install --save node-fetch@2.6.7"
+
+Q10. How to use dotenv ?
+- npm install dotenv
+- Create page object
+- Create .env file and store username password
+- Reference the file 
+- import dotenv and run the dotenv.config() to fetch data
+
