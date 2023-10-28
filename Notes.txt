@@ -7,7 +7,7 @@ Notes -------------------------------
   If you increase the number of files in example2.spec.js, then we execute those tests in PARALLEL
 3. All test files should end in  ".spec.js"
 4. To test in mobile, you will need to uncomment the "Mobile Chrome" viewport in playwright.config.js
-
+5. Use Docker to run your code in GitHub Actions
 
 
 
@@ -112,3 +112,19 @@ Q11. How to add to GitHub Actions ?
 1. Create .github folder
 2. Create another directory 'workflows'
 3. Create playwright.yml file
+4. Push to repo
+5. Go to Actions in GitHub and see the success message
+
+Q12. What is the difference between npm install vs npm ci ?
+- npm install - installs from package.json
+- npm ci - installs from package-lock.json
+
+Q13. Why would we want to use the package-lock file ?\
+- Make sure our tests our consistent
+
+Q14. Where do you get this line  ? 
+      image: mcr.microsoft.com/playwright:v1.39.0-jammy
+- This is coming in from the docker.hub.com for playwright 
+In docker we see this: 
+"mcr.microsoft.com/playwright:v1.39.0-jammy"
+

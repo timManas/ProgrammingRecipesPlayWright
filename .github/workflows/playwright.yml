@@ -5,8 +5,20 @@ on: #Specifies when this pipeline runes
 jobs: # This is the list of jobs it runs when we push to main branch
   playwrighttests:
     runs-on: ubuntu-latest #runs on specific Operating system
-    steps:
+    container: # run on a specific container
+      image: mcr.microsoft.com/playwright:v1.39.0-jammy
+      env:
+        ADMIN_USER: ${{ secrets.ADMIN_USER }}
+        ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+    steps: # This is the steps to perform by the action
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Say hello
-        run: echo Hello
+      - name: Run tests
+        run: |
+          echo "Start the shopping store application"
+          chmod +x ./shopping-store-mac-amd64
+          ./shopping-store-mac-amd64 &
+          echo "Install dependencies from lockfile"
+          npm ci
+          echo "Run Playwright tests"
+          npm run test:ci

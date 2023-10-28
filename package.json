@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test --headed",
-    "testExamples": "playwright test-examples --headed"
+    "testExamples": "playwright test-examples --headed",
+    "test:ci": "playwright test"
   },
   "keywords": [],
   "author": "",
