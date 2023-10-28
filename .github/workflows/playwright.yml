@@ -1,0 +1,12 @@
+name: Playwright Tests # Name of the pipelines
+on: #Specifies when this pipeline runes
+  push:
+    brances: [main] #  Run when we push on branch 'main'
+jobs: # This is the list of jobs it runs when we push to main branch
+  playwrighttests:
+    runs-on: ubuntu-latest #runs on specific Operating system
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Say hello
+        run: echo Hello

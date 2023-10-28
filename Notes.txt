@@ -108,3 +108,7 @@ Q10. How to use dotenv ?
 - Reference the file 
 - import dotenv and run the dotenv.config() to fetch data
 
+Q11. How to add to GitHub Actions ?
+1. Create .github folder
+2. Create another directory 'workflows'
+3. Create playwright.yml file

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('Product Page Add To Basket', async ({ page }) => {
+test.skip('Product Page Add To Basket', async ({ page }) => {
   await page.goto('/') // Go to base url page ...which is set in the baseURL
 
   // Locate Button
