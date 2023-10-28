@@ -1,1 +1,148 @@
 # ProgrammingRecipesPlayWright
+
+PlayWright
+
+Notes -------------------------------
+
+1. Running npm run tests, will execute all your tests on chromium, firefox and webkit UNLESS you comment them out
+2. NOTE !! All tests run in PARALLEL.
+   If you increase the number of files in example2.spec.js, then we execute those tests in PARALLEL
+3. All test files should end in ".spec.js"
+4. To test in mobile, you will need to uncomment the "Mobile Chrome" viewport in playwright.config.js
+5. Use Docker to run your code in GitHub Actions
+
+Tips & Tricks -------------------------------
+
+1. You can pause (like a debugger) using page.pause().
+   Then a playwright inspector will appear and you can click the play button to move next
+2. Use .waitFor() to wait for a specific elemenet to appear and also get better logs
+
+- Note: This is affected by playwright config timeout: 5 \* 1000,
+
+3. The 'reporter: line' sets the bugs to appear on the console instead of the browser
+4. 'test' allow us to write tests
+   'expect' allow us to validate something
+   import { test, expect } from '@playwright/test'
+5. Press ctrl+f to open the selector
+6. Set the baseURL in the playwright.config.js file to set the base URL so we dont need to repeat constatly
+
+- Note: when go to main home page, we just need to do page.goto('/')
+
+7. You can run specific test by using the .only
+
+- Ex: test.only()
+
+8. BP: Make sure you define your locators in the constructor in PageObjects
+9. BP: Make sure to call waitFor() before performing any action or validation
+10. npn install --save PACKAGENAME - Will download from npm and save it into your package.json devDependencies
+11. BP: Page Objects should not contain any hard coded values. Should be placed in an object instead
+12. Use JSON.stringify() to convert JSON object to stringify. Why ? So we can send them in the body of a API request
+13. Holy Shit ! You can use the console to send cookies to a website ...WHAT ????
+14. Use page.evaluate() to execute JS on the browser
+15. Use the .env (environment variable) to store username/password credentials
+    > You need to install dotenv to read the .env file (npm install --save dotenv)
+16. Use globalSetup to instantiate your testcases before they run (ex: execute the dotenv you can access the parameters through the project)
+    > globalSetup: require.resolve('./globalSetup.js'),
+
+Questions -------------------------------
+
+##### TODO
+
+1. Visit the PlayWright Documentation
+2. Understand node_modules
+3. Understand the playwright.config.js
+4. Find different tricks to locate element
+5. Learn what this does ...page.evaluate()
+
+##### Basic Concepts
+
+Q1. How to run on Npm ?
+
+1. Execute the "shopping-store-mac-amd64"
+2. Go localhost:2221 to make sure it is running
+3. Execute the following
+   npm run test
+   Or
+   npm test
+
+Q2. What does the --headed do in package.json ?
+
+1. Opens Browser (i.e this is headed browser execution)
+   1a.Without the head will run in a headless browser
+2. Runs all the tests in "tests" folder
+
+Q3. Why the "tests" folder ?
+
+- Its because we defined that in the package.json
+  Ex: In Package json
+  "scripts": {
+  "test": "playwright test --headed"
+  },
+
+Q4. What is the purpose of the playwright.config.js ?
+
+1. Executes our tests on each one of the "projects" type i.e Chromium, Firefox, webkit
+2. Sets our configuration for the suite
+
+Q5. How to skip tests
+
+- - You can skip by using test.skip()
+    Running 2 tests using 2 workers
+    1 skipped
+    1 passed (5.4s)
+
+Q6. What does this mean ?
+import { test } from '@playwright/test' ?
+
+- This line basically means that we import test from '@playwright/tests' from the package.json ...which then is stored in the node_modules
+
+\*\*TODO: Understand what the Node_modules is ? What, Why, Where, How ?
+
+Q7. How to initiate a tests ?
+
+1. We need the test object from @playwright/tests
+   test('TITLE HERE', async ({ page }) => {
+   await page.goto('www.XYZ.com')
+   })
+
+Q8. What is the { tests } object ?
+
+- It is the test.d.ts file in node_modules
+
+Q9. What is Node Fetch
+
+- Bring Fetch API to Node.js
+- Note: version of node-fetch is v2 ... NOT v3
+  "npm install --save node-fetch@2.6.7"
+
+Q10. How to use dotenv ?
+
+- npm install dotenv
+- Create page object
+- Create .env file and store username password
+- Reference the file
+- import dotenv and run the dotenv.config() to fetch data
+
+Q11. How to add to GitHub Actions ?
+
+1. Create .github folder
+2. Create another directory 'workflows'
+3. Create playwright.yml file
+4. Push to repo
+5. Go to Actions in GitHub and see the success message
+
+Q12. What is the difference between npm install vs npm ci ?
+
+- npm install - installs from package.json
+- npm ci - installs from package-lock.json
+
+Q13. Why would we want to use the package-lock file ?\
+
+- Make sure our tests our consistent
+
+Q14. Where do you get this line ?
+image: mcr.microsoft.com/playwright:v1.39.0-jammy
+
+- This is coming in from the docker.hub.com for playwright
+  In docker we see this:
+  "mcr.microsoft.com/playwright:v1.39.0-jammy"
