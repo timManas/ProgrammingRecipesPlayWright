@@ -3,7 +3,8 @@ import { MyAccountPage } from '../page-objects/MyAccountPage.js'
 import { getLoginToken } from '../api-calls/getLoginToken.js'
 import { adminDetails } from '../data/userDetails.js'
 
-test('My account using cookie injection', async ({ page }) => {
+// Dont add this to GITHUB Actions
+test.skip('My account using cookie injection', async ({ page }) => {
   // Make a request to get login token
   const loginToken = await getLoginToken(
     adminDetails.username,
