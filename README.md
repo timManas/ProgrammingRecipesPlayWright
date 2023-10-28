@@ -1,5 +1,7 @@
 # ProgrammingRecipesPlayWright
 
+[![Playwright Tests](https://github.com/timManas/ProgrammingRecipesPlayWright/actions/workflows/playwright.yml/badge.svg)](https://github.com/timManas/ProgrammingRecipesPlayWright/actions/workflows/playwright.yml)
+
 PlayWright
 
 Notes -------------------------------
